@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mroczne Nagranie</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #f1f1f1;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: crimson;
+      text-shadow: 0 0 10px crimson;
+    }
+    input {
+      background: #111;
+      color: #eee;
+      border: 2px solid crimson;
+      border-radius: 8px;
+      padding: 10px;
+      width: 220px;
+      text-align: center;
+      font-size: 16px;
+      outline: none;
+    }
+    button {
+      margin-top: 10px;
+      background: crimson;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: darkred;
+    }
+    audio {
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wprowadź hasło...</h1>
+  <input type="password" id="password" placeholder="Hasło" />
+  <button onclick="checkPassword()">Odtwórz</button>
+  <audio id="audio" src="audio/babajaga.mp3"></audio>
+
+  <script>
+    const correctPassword = "123"; 
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const audio = document.getElementById("audio");
+
+      if (input === correctPassword) {
+        document.querySelector("h1").textContent = "Odtwarzanie...";
+        audio.style.display = "block";
+        audio.play();
+      } else {
+        alert("Niepoprawne hasło...");
+      }
+    }
+  </script>
+</body>
+</html>
